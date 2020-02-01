@@ -1,0 +1,34 @@
+{
+  "info": {
+    "name": "HomeCarouselItem"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "ImgClassName": {
+      "type": "string"
+    },
+    "ImgSrc": {
+      "type": "string"
+    },
+    "ImgAlt": {
+      "type": "string"
+    },
+    "Show": {
+      "type": "boolean"
+    },
+    "CaptionHeader": {
+      "type": "string"
+    },
+    "CaptionBody": {
+      "type": "string"
+    }
+  },
+  "connection": "default",
+  "collectionName": "home_carousel_items"
+}

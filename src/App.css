@@ -1,0 +1,31 @@
+/* You can set some specific CSS of interest here*/
+.App-logo {
+    height: 5vmin;
+ }
+/*
+ .container-fluid {
+    background-color: #f0f0f0;
+  }
+  */
+.navbar{
+    z-index:9; 
+}
+.carousel-at-top-position{
+    position:absolute;
+    top:0;
+}
+
+.restrict-home-carousel-height{
+    max-height: 100vh;
+}
+
+.carousel-caption {
+    top: 70%;
+    bottom: auto;
+    
+}
+
+.carousel-indicators{
+    top: 90%;
+    bottom: auto;
+}

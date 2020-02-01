@@ -1,0 +1,16 @@
+.info{
+    color: blue;
+    padding: 1em;
+}
+.warning{
+    color: orange;
+    padding: 1em;
+}
+.failure{
+    color: red;
+    padding: 1em;
+}
+.success{
+    color: green;
+    padding: 1em;
+}

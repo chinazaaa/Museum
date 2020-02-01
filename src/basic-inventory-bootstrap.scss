@@ -1,0 +1,22 @@
+// Override default variables before the import.
+// See https://getbootstrap.com/docs/4.1/getting-started/theming/#css-variables
+//$body-bg: #eee;
+
+// Import all Bootstrap and its default variables
+@import '~bootstrap/scss/bootstrap.scss'; //ensure that the ~ is there for imports from node_modules to be found
+
+//Alternatively (more efficient) import some parts of bootstrap instead of all above, if you know which you will need
+//For part importation, always install functions, variables and mixins as shown below.
+/*
+// Required
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/mixins";
+
+// Optional
+@import "../node_modules/bootstrap/scss/reboot";
+@import "../node_modules/bootstrap/scss/type";
+@import "../node_modules/bootstrap/scss/images";
+@import "../node_modules/bootstrap/scss/code";
+@import "../node_modules/bootstrap/scss/grid";
+*/

@@ -19,7 +19,8 @@ const AddItem: React.FC<Props> = (props) => {
         year: 0,
         description: '',
         location: '',
-        featured: false
+        
+        is_featured: 0
     }
 
     //declare the state variable for item to be added from form. Notice that we are using an object containing the individual elements
@@ -33,6 +34,10 @@ const AddItem: React.FC<Props> = (props) => {
         itemState[event.target.name] = event.target.value;
         setItem({...itemState});//checkin the modified state
     }
+    const onChange2 = (event: any)=>{
+        const isFeatured = parseInt(event.target.value)
+    }
+
 
     //function to handle form onSubmit event
     const onSubmit = (event: any) => {
@@ -87,10 +92,10 @@ const AddItem: React.FC<Props> = (props) => {
                         <Form.Control type='text' name='location' id='location' placeholder="Present Location" value={item.location} onChange={onChange} required/>
                     </Form.Group>
                     <Form.Group>
-                    <Form.Label htmlFor='featured'>Is it featured?</Form.Label>
-                    <Form.Control as='select' id="featured" name="featured" value={item.featured} onChange={onChange}>
-                    <option value='Yes'>Yes</option>
-                        <option value='No'>No</option>
+                    <Form.Label htmlFor='is_featured'>Is it Featured?</Form.Label>
+                    <Form.Control as='select' id="is_featured" name="is_featured" value={item.is_featured} onChange={onChange2} required>
+                        <option value='1'>Yes</option>
+                        <option value='0'>No</option>
                         </Form.Control>
                 </Form.Group>
                 <Form.Group>

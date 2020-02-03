@@ -32,6 +32,9 @@
     },
     "artwork": {
       "type": "string"
+    },
+    "is_featured": {
+      "type": "biginteger"
     }
   }
 }

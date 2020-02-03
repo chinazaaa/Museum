@@ -21,7 +21,9 @@ const EditItem: React.FC<Props> = (props) => {
         year: props.item.year,
         description: props.item.description,
         location: props.item.location,
-        featured: props.item.featured
+        featured: props.item.featured,
+        is_featured: props.item.is_featured,
+       
     }
 
     //declare the state variable for item to be added from form. Notice that we are using an object containing the individual elements

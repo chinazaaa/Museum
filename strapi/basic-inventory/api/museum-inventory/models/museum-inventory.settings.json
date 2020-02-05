@@ -21,9 +21,6 @@
     "location": {
       "type": "string"
     },
-    "featured": {
-      "type": "boolean"
-    },
     "category": {
       "type": "string"
     },
@@ -33,8 +30,8 @@
     "artwork": {
       "type": "string"
     },
-    "is_featured": {
-      "type": "biginteger"
+    "featured": {
+      "type": "integer"
     }
   }
 }

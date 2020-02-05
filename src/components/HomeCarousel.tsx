@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Carousel, Container, Image } from 'react-bootstrap';
 //import ReactHtmlParser from 'react-html-parser';
-
+// import imgSrc from 'src/components/imgSrc.jpeg';
 const HomeCarousel: React.FC = () => {
 
     type CarouselType = {
@@ -24,13 +24,18 @@ const HomeCarousel: React.FC = () => {
         use?: string,
         home_carousel_items?: [
             {
+                // id?: number | string,
+                // name?: string,
+                // captionHeader?: string,
+                // captionBody?: string,
+                // imgClassName?: string,
+                // imgSrc?: string,
+                // imgAlt?: string,
+                // show?: boolean
                 id?: number | string,
-                name?: string,
-                captionHeader?: string,
-                captionBody?: string,
-                imgClassName?: string,
-                imgSrc?: string,
+                header?: string,
                 imgAlt?: string,
+                imageUrl?: string,
                 show?: boolean
             }
         ]
@@ -50,7 +55,7 @@ const HomeCarousel: React.FC = () => {
     //function to fetch data
     const fetchData = async () => {
         try {
-        const response = await fetch("/home-carousels?name=Main Home Carousel&home_carousel_items.show=true");
+        const response = await fetch("/home-carousels?id_eq=1&home_carousel_items.show=true");
         const data: CarouselType[] = await response.json();
         //set in state  
         setState({...state, index: data[0].activeIndex, carousel: data})
@@ -98,13 +103,13 @@ const HomeCarousel: React.FC = () => {
                         return(
                             <Carousel.Item>
                                 <Image
-                                    className={carouselItem.imgClassName}
-                                    src={carouselItem.imgSrc}
+                                    // className={carouselItem.imgClassName}
+                                    src={carouselItem.imageUrl}
                                     alt={carouselItem.imgAlt}
                                 />
                                 <Carousel.Caption>
-                                    <h3>{carouselItem.captionHeader}</h3>
-                                    <p>{carouselItem.captionBody}</p>
+                                    <h3>{carouselItem.header}</h3>
+                                    <p>{carouselItem.imgAlt}</p>
                                 </Carousel.Caption>
                             </Carousel.Item>
                         )

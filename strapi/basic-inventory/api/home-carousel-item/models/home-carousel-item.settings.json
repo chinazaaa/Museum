@@ -1,4 +1,6 @@
 {
+  "connection": "default",
+  "collectionName": "home_carousel_items",
   "info": {
     "name": "HomeCarouselItem"
   },
@@ -7,28 +9,21 @@
     "timestamps": true
   },
   "attributes": {
-    "Name": {
-      "type": "string"
-    },
-    "ImgClassName": {
-      "type": "string"
-    },
-    "ImgSrc": {
-      "type": "string"
-    },
     "ImgAlt": {
       "type": "string"
     },
-    "Show": {
+    "header": {
+      "type": "string"
+    },
+    "show": {
       "type": "boolean"
     },
-    "CaptionHeader": {
+    "imageUrl": {
       "type": "string"
     },
-    "CaptionBody": {
-      "type": "string"
+    "home_carousel": {
+      "model": "home-carousel",
+      "via": "home_carousel_items"
     }
-  },
-  "connection": "default",
-  "collectionName": "home_carousel_items"
+  }
 }

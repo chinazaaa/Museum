@@ -22,7 +22,6 @@ const EditItem: React.FC<Props> = (props) => {
         description: props.item.description,
         location: props.item.location,
         featured: props.item.featured,
-        is_featured: props.item.is_featured,
        
     }
 
@@ -37,6 +36,9 @@ const EditItem: React.FC<Props> = (props) => {
         itemState[event.target.name] = event.target.value;
         setItem({...itemState});//checkin the modified state
     }
+    // const onChange2 = (event: any)=>{
+    //     const isFeatured = parseInt(event.target.value)
+    // }
 
     //function to handle form onSubmit event
     const onSubmit = (event: any) => {
@@ -95,9 +97,8 @@ const EditItem: React.FC<Props> = (props) => {
                     <Form.Group>
                     <Form.Label htmlFor='featured'>Is it featured?</Form.Label>
                     <Form.Control as='select' id="featured" name="featured" value={item.featured} onChange={onChange}>
-                        <option selected={item.featured === "Yes"? true: false} value="Yes">Yes</option>
-                        <option selected={item.featured === "No"? true: false} value="No">No</option>
-                        </Form.Control>
+                    <option value='1'>Yes</option>
+                        <option value='0'>No</option> </Form.Control>
                 </Form.Group>
                 <Form.Group>
                     <Button type='submit' variant='primary'>Submit</Button>

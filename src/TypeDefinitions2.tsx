@@ -12,8 +12,7 @@ export interface ItemType {
     year: number,
     description: string,
     location: string,
-    featured?: boolean | number,
-    is_featured?: number
+    featured?: number
    
 };
 /* Below will also work

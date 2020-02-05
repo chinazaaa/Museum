@@ -1,4 +1,6 @@
 {
+  "connection": "default",
+  "collectionName": "home_carousels",
   "info": {
     "name": "HomeCarousel"
   },
@@ -54,8 +56,10 @@
     },
     "Use": {
       "type": "string"
+    },
+    "home_carousel_items": {
+      "via": "home_carousel",
+      "collection": "home-carousel-item"
     }
-  },
-  "connection": "default",
-  "collectionName": "home_carousels"
+  }
 }

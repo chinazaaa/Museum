@@ -13,8 +13,10 @@ const ItemList: React.FC<Props> = (props) => {
   //prepare items for display in a table
   let itemListRows = null;
   itemListRows = props.items.map((item) => {
-    return <Item item={item} />
-  })
+    item.featured == 1 
+        return <Item item={item} /> ;
+        return null
+      })
 
   return (
     <div>

@@ -22,14 +22,14 @@ const Item: React.FC<Props> = (props) => {
 
     return (
     <tr>
-      
+       {/* {alert(`Is featured = ${props.item.is_featured}`)} */}
           <td>{props.item.artwork}</td>
         <td>{props.item.genre}</td> 
         <td>{props.item.artist}</td> 
         <td>{props.item.year}</td>
          <td>{props.item.description}</td>
           <td>{props.item.location}</td>
-          <td>{props.item.is_featured==1?'Yes': 'No'}</td>
+          <td>{props.item.featured===1?'Yes': 'No'}</td>
           
 
         <td>

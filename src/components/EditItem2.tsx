@@ -22,6 +22,8 @@ const EditItem: React.FC<Props> = (props) => {
         description: props.item.description,
         location: props.item.location,
         featured: props.item.featured,
+        imgUrl: props.item.imgUrl
+        // image: props.item.image
        
     }
 
@@ -55,7 +57,7 @@ const EditItem: React.FC<Props> = (props) => {
     return (
         <Col lg={6} className='border'>
             <Form onSubmit={onSubmit}>
-                <legend>Edit Item:</legend>
+                <legend>Edit Museum Item:</legend>
                 <Form.Group>
                     <Form.Control type='hidden' name="id" value={item.id} readOnly/>
                 </Form.Group>
@@ -100,6 +102,11 @@ const EditItem: React.FC<Props> = (props) => {
                     <option value='1'>Yes</option>
                         <option value='0'>No</option> </Form.Control>
                 </Form.Group>
+                <Form.Group>
+                    <Form.Label htmlFor='text'>Image</Form.Label>
+                    <Form.Control type='text' name='imgUrl' id='imgUrl' placeholder="Image" value={item.imgUrl} onChange={onChange} required />
+                </Form.Group>
+
                 <Form.Group>
                     <Button type='submit' variant='primary'>Submit</Button>
                     <Button type='button' variant='link' onClick={onCancel}>Cancel</Button>

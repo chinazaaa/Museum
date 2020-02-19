@@ -13,6 +13,7 @@ const ItemListHeader: React.FC = () => {
           <th>Description of Artist</th>
           <th>Present location</th> 
           <th>Is It Featured?</th>
+          {/* <th>Image</th> */}
           <th>Action Buttons</th>
          
       </tr>

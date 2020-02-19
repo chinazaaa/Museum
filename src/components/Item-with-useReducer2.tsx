@@ -20,6 +20,7 @@ const Item: React.FC<Props> = (props) => {
         handlersContext!.dispatch!({type: 'HandleEditItem', payload: {id: props.item.id}}); //notice here that we are invoking the handleEditItem() via handlersContext. The exclamation mark is because of the possible null which will not really happen
     };
 
+   
     return (
     <tr>
        {/* {alert(`Is featured = ${props.item.is_featured}`)} */}
@@ -29,8 +30,12 @@ const Item: React.FC<Props> = (props) => {
         <td>{props.item.year}</td>
          <td>{props.item.description}</td>
           <td>{props.item.location}</td>
-          <td>{props.item.featured===1?'Yes': 'No'}</td>
-          
+        
+         
+          <td>{props.item.featured===1? <img src="https://p.bigstockphoto.com/GeFvQkBbSLaMdpKXF1Zv_bigstock-Aerial-View-Of-Blue-Lakes-And--227291596.jpg"height="42" width="42"/> : null}</td>
+{/* 
+          <td>{props.item.imgUrl} </td>
+           */}
 
         <td>
         <ButtonGroup>

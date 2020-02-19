@@ -1,3 +1,4 @@
+import { Media } from "react-bootstrap"
 
 /*This module is for defining custom type definitions required anywhere in my codes
 Each definition using the keyword interface is exported for use in other modules.
@@ -12,18 +13,12 @@ export interface ItemType {
     year: number,
     description: string,
     location: string,
-    featured?: number
+    featured?: number,
+    imgUrl: string
+    // image: any
    
 };
-/* Below will also work
-export type ItemType = {
-    id: number,
-    category: string,
-    name: string,
-    price: number,
-    in_stock: number
-};
-*/
+
 export type CombinedStateType = {
     items?: ItemType[],
     onAddItem: boolean,

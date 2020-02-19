@@ -40,8 +40,13 @@ const reducer = (state: CombinedStateType, action: ActionType) => {
     case 'BeforeUpdateItem': 
       //goal here is to set alert to show updating item message
       return {...state, alert:{show: true, type: 'info', message: 'Updating item. Please wait!', bootstrapVariant:"info"}};
+      case 'BeforeViewItem': 
+      //goal here is to set alert to show updating item message
+      return {...state, alert:{show: true, type: 'info', message: 'View item. Please wait!', bootstrapVariant:"info"}};
     case 'HandleCancelUpdate':
         return {...state, onEditItem: false};
+        case 'HandleCancelView':
+          return {...state, onViewItem: false};
     case 'HandleEditItem': {
       const currentItems = state.items;
       const index = currentItems!.findIndex((item) => item.id === action.payload!.id);
@@ -60,6 +65,19 @@ const reducer = (state: CombinedStateType, action: ActionType) => {
     case 'UpdateItemFailure': 
       //goal here is to set alert to show failure to update
       return {...state, alert:{show: true, type: 'failure', message: `Could not update item: ${action.payload!.error}`}};
+
+      case 'ViewItemSuccess': {
+        //goal here is to update state with item updated
+        const currentItems = state.items;
+        //currentItems.push(action.payload!.itemCreated!);
+        const index = currentItems!.findIndex((item) => item.id === action.payload!.itemUpdated!.id);
+        //now change the value for that item in state
+        currentItems![index] = action.payload!.itemUpdated!;
+        return {...state, items: currentItems, onEditItem: false, alert:{show: true, type: 'success', message: 'Item successfully Viewed!', bootstrapVariant:"success"}}
+      };
+      case 'ViewItemFailure': 
+        //goal here is to set alert to show failure to update
+        return {...state, alert:{show: true, type: 'failure', message: `Could not view item: ${action.payload!.error}`}};
     case 'HandleCloseAlert':
       return {...state, alert: {show: false, message: '', type: ''}};
     default:

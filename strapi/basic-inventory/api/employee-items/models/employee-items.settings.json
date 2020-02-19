@@ -1,0 +1,37 @@
+{
+  "info": {
+    "name": "employee-items"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "uniqueEmployeeIdentification_17100310846": {
+      "type": "string"
+    },
+    "dateOfEmployment": {
+      "type": "date"
+    },
+    "modeOfEmployment_17100310846": {
+      "type": "string"
+    },
+    "jobTitle_17100310846": {
+      "type": "string"
+    },
+    "firstName_17100310846": {
+      "type": "string"
+    },
+    "lastName_17100310846": {
+      "type": "string"
+    },
+    "dateOfBirth": {
+      "type": "date"
+    },
+    "nationality_17100310846": {
+      "type": "string"
+    }
+  },
+  "connection": "default",
+  "collectionName": "employee_items"
+}

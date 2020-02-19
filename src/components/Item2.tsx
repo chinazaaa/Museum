@@ -29,6 +29,7 @@ const Item: React.FC<Props> = (props) => {
         <td>{props.item.year}</td>
          <td>{props.item.description}</td>
           <td>{props.item.location}</td>
+          {/* <td>{props.item.image}</td> */}
           <td>{props.item.featured==1?'Yes': 'No'}</td>
           
 

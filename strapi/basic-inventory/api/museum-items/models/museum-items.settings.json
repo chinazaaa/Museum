@@ -1,39 +1,36 @@
 {
   "connection": "default",
-  "collectionName": "museum_inventories",
+  "collectionName": "museum_items",
   "info": {
-    "name": "MuseumInventory"
+    "name": "museumItems"
   },
   "options": {
     "increments": true,
     "timestamps": true
   },
   "attributes": {
-    "genre": {
+    "nameOfArtwork": {
       "type": "string"
     },
-    "artist": {
+    "synopsis": {
       "type": "string"
     },
-    "description": {
+    "artistName": {
       "type": "string"
     },
-    "location": {
+    "artistEmailAddress": {
       "type": "string"
     },
-    "category": {
+    "dateCommissioned": {
       "type": "string"
     },
-    "year": {
+    "onDisplay": {
+      "type": "boolean"
+    },
+    "viewerRating": {
       "type": "integer"
     },
-    "artwork": {
-      "type": "string"
-    },
-    "featured": {
-      "type": "integer"
-    },
-    "ImgUrl": {
+    "artistPhoneNumber": {
       "type": "string"
     }
   }

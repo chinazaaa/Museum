@@ -10,6 +10,7 @@ export interface ItemType {
     name: string,
     price: number,
     in_stock: number
+    
 };
 /* Below will also work
 export type ItemType = {
@@ -24,7 +25,9 @@ export type CombinedStateType = {
     items?: ItemType[],
     onAddItem: boolean,
     onEditItem: boolean,
-    itemToEdit: null | ItemType, //safe in this way so as to be able to set it to null
+    onViewItem: boolean,
+    itemToEdit: null | ItemType,
+    itemToView: null | ItemType, //safe in this way so as to be able to set it to null
     alert: { 
       show: boolean, //show alert or not
       message: string,
@@ -39,8 +42,8 @@ export type CombinedStateType = {
   
 export type ActionType = {
     //Indicate possible action types here as you identify them in your codes
-    type: 'FetchDataSuccess' | 'FetchDataFailure' | 'HandleOnAddItem' | 'HandleCancelCreate' | 'BeforeCreateItem' | 'CreateItemSuccess' | 'CreateItemFailure' | 'BeforeDeleteItem' | 'DeleteItemSuccess' | 'DeleteItemFailure'| 'HandleEditItem' | 'HandleCancelUpdate' | 'BeforeUpdateItem' | 'UpdateItemSuccess' | 'UpdateItemFailure' | 'HandleCloseAlert',
+    type: 'FetchDataSuccess' | 'FetchDataFailure' | 'HandleOnAddItem' | 'HandleCancelCreate' | 'BeforeCreateItem' | 'CreateItemSuccess' | 'CreateItemFailure' | 'BeforeDeleteItem' | 'DeleteItemSuccess' | 'DeleteItemFailure'| 'HandleEditItem' | 'HandleCancelUpdate' | 'BeforeUpdateItem' | 'UpdateItemSuccess' | 'UpdateItemFailure' |'BeforeViewItem'| 'ViewItemSuccess' | 'ViewItemFailure' |'HandleViewItem' |'HandleCancelView' |'HandleCloseAlert',
     //All question marks below show that they may or may not be provided.
-    payload?: {items?: ItemType[], itemCreated?: ItemType, error?: Error, id?: number | string, itemUpdated?: ItemType},
+    payload?: {items?: ItemType[], itemCreated?: ItemType, error?: Error, id?: number | string, itemUpdated?: ItemType,itemView?: ItemType },
   }
   

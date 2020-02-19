@@ -13,13 +13,7 @@ const Item: React.FC<Props> = (props) => {
     const handlersContext = useContext(HandlersContext);
 
     //callback function for delete button onClick event. We could have also embedded this function definition directly rather than define it first here
-    const onDeleteItem = () => {
-        handlersContext!.handleDeleteItem(props.item.id); ////notice here that we are invoking the handleDeleteItem() via handlersContext. The exclamation mark is because of the possible null which will not really happen
-    };
-
-    const onEditItem = () => {
-        handlersContext!.dispatch!({type: 'HandleEditItem', payload: {id: props.item.id}}); //notice here that we are invoking the handleEditItem() via handlersContext. The exclamation mark is because of the possible null which will not really happen
-    };
+  
 
     const onViewItem = () => {
         handlersContext!.dispatch!({type: 'HandleViewItem', payload: {id: props.item.id}}); //notice here that we are invoking the handleEditItem() via handlersContext. The exclamation mark is because of the possible null which will not really happen
@@ -35,8 +29,7 @@ const Item: React.FC<Props> = (props) => {
         <td>
         <ButtonGroup>
           <Button variant='outline-primary' onClick={onViewItem}>View Detail</Button>
-          <Button variant='outline-warning' onClick={onEditItem}>Edit </Button>
-          <Button variant='outline-danger' onClick={() => {if (window.confirm('Are you sure you want to delete?')) onDeleteItem()}}>Delete</Button>
+          
         </ButtonGroup>
         </td>
     </tr>

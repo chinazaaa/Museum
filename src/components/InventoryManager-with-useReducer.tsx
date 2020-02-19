@@ -3,6 +3,7 @@ import ItemList from './ItemList-with-useReducer';
 import {ItemType, ActionType, CombinedStateType} from '../TypeDefinitions'; 
 import AddItem from './AddItem';
 import EditItem from './EditItem';
+import ViewItem from './ViewDetails';
 //import Alert from './components/Alert';
 import reducer from './reducers/InventoryManagerReducer';
 
@@ -27,7 +28,7 @@ type Reducer<S, A> = (prevState: S, action: A) => S;
 const InventoryManager: React.FC = () => {
   //let us organize state, using useReducer
   //Prepare initialization
-  const initialState: CombinedStateType = {items: [], onAddItem: false, onEditItem: false, itemToEdit:null, alert: {show: false, message: '', type: '', bootstrapVariant: undefined}};
+  const initialState: CombinedStateType = {items: [], onAddItem: false, onEditItem: false, onViewItem: false, itemToEdit:null, itemToView:null, alert: {show: false, message: '', type: '', bootstrapVariant: undefined}};
   //using useReducer instead of useState. Below, I am optionally explicitly indicating parameter types
   const [state, dispatch] = useReducer<Reducer<CombinedStateType, ActionType>>(reducer, initialState);
 
@@ -134,9 +135,45 @@ const InventoryManager: React.FC = () => {
 
   }
 
+  const handleViewItem = async(viewItem: ItemType) => {
+    dispatch({type: 'BeforeViewItem'})
+    //You can optionally send an alert at the beginning of this function, in case it takes long to finish.
+    //Of course, this alert will only flash if it takes very minimal time to create item
+    //let's try to write to backend
+    try {
+      const response = await fetch(`/myinventories/${viewItem.id}`,
+      {
+        method: 'GET',//notice the method
+        //mode: 'cors', // no-cors, *cors, same-origin
+        //cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+        //credentials: 'same-origin', // include, *same-origin, omit
+        headers: {
+          'Content-Type': 'application/json'
+          // 'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      //redirect: 'follow', // manual, *follow, error
+      //referrerPolicy: 'no-referrer', // no-referrer, *client
+      body: JSON.stringify(viewItem) // body data type must match "Content-Type" header
+
+      });
+      if (!response.ok) throw new Error(response.statusText);//confirm that response is OK
+      //Response is ok. Proceed with setting state with itemUpdated
+      const itemView = await response.json();
+      //dispatch to state
+     dispatch({type: 'ViewItemSuccess', payload: {itemView: itemView}})
+    }catch(error) {
+      dispatch({type: 'ViewItemFailure', payload: {error: error}})
+    }
+
+  }
+
   const handleCancelUpdate = () => {
     //simply set state to make displayUpdate disappear
     dispatch({type: 'HandleCancelUpdate'});
+  }
+  const handleCanceView = () => {
+    //simply set state to make displayUpdate disappear
+    dispatch({type: 'HandleCancelView'});
   }
 
   //function to fetch data
@@ -228,6 +265,19 @@ const InventoryManager: React.FC = () => {
         </Row>
       </Container>
     )
+  }
+    else if(state.onViewItem && state.itemToView != null){//Display AddItem along with ItemList if onAddItem is true
+      return(
+        <Container>
+          <Row>
+            <h3>View Details</h3>
+          </Row>
+          <Row>
+          <ViewItem item={state.items!}/>
+        </Row>
+         
+        </Container>
+      )
   }else{//onAddItem is false
     return (
       <Container>

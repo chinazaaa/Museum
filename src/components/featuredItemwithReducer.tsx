@@ -23,6 +23,7 @@ const FeaturedItemwithReducer: React.FC<Props> = (props) => {
         <tbody>
           {itemListRows}
         </tbody>
+        {/* <caption>{itemListRows.length} featured item(s) available in the inventory</caption> */}
       </Table>
   );
 }

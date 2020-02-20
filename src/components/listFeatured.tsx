@@ -21,7 +21,7 @@ const ListFeatured: React.FC<Props> = (props) => {
     };
 
     const featured = () => {
-        if (props.item.featured == true) {
+        if (props.item.featured === true) {
             alert(`
             Name of the artwork: ${props.item.artwork}
             Genre: ${props.item.genre}
@@ -43,7 +43,7 @@ const ListFeatured: React.FC<Props> = (props) => {
     return (
         <tr>
             <td>{props.item.artwork}</td>
-            <td><img src={props.item.imgUrl} height="50%" ></img></td>
+            <td><img src={props.item.imgUrl} height="50%" alt={props.item.artwork} /></td>
 
             <td>
                 <ButtonGroup>

@@ -1,5 +1,5 @@
 /** This component is for displaying each item in the record, passed to it from ItemList */
-import React, { useState } from 'react';
+import React from 'react';
 import { ItemType } from '../TypeDefinitions';
 import ItemListHeader from './ItemListHeader';
 import Item from './Item-with-useReducer-view';

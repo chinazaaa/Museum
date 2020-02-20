@@ -19,7 +19,7 @@ const ItemList: React.FC<Props> = (props) => {
 
   return (
       <Table striped bordered hover>
-        <caption>Table 1: Available Museum Items</caption>
+        {/* <caption>{itemListRows.length} item(s) available in the inventory</caption> */}
         <ItemListHeader />
         <tbody>
           {itemListRows}

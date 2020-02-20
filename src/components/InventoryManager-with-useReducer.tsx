@@ -135,46 +135,46 @@ const InventoryManager: React.FC = () => {
 
   }
 
-  const handleViewItem = async(viewItem: ItemType) => {
-    dispatch({type: 'BeforeViewItem'})
-    //You can optionally send an alert at the beginning of this function, in case it takes long to finish.
-    //Of course, this alert will only flash if it takes very minimal time to create item
-    //let's try to write to backend
-    try {
-      const response = await fetch(`/myinventories/${viewItem.id}`,
-      {
-        method: 'GET',//notice the method
-        //mode: 'cors', // no-cors, *cors, same-origin
-        //cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-        //credentials: 'same-origin', // include, *same-origin, omit
-        headers: {
-          'Content-Type': 'application/json'
-          // 'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      //redirect: 'follow', // manual, *follow, error
-      //referrerPolicy: 'no-referrer', // no-referrer, *client
-      body: JSON.stringify(viewItem) // body data type must match "Content-Type" header
+  // const handleViewItem = async(viewItem: ItemType) => {
+  //   dispatch({type: 'BeforeViewItem'})
+  //   //You can optionally send an alert at the beginning of this function, in case it takes long to finish.
+  //   //Of course, this alert will only flash if it takes very minimal time to create item
+  //   //let's try to write to backend
+  //   try {
+  //     const response = await fetch(`/myinventories/${viewItem.id}`,
+  //     {
+  //       method: 'GET',//notice the method
+  //       //mode: 'cors', // no-cors, *cors, same-origin
+  //       //cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+  //       //credentials: 'same-origin', // include, *same-origin, omit
+  //       headers: {
+  //         'Content-Type': 'application/json'
+  //         // 'Content-Type': 'application/x-www-form-urlencoded',
+  //     },
+  //     //redirect: 'follow', // manual, *follow, error
+  //     //referrerPolicy: 'no-referrer', // no-referrer, *client
+  //     body: JSON.stringify(viewItem) // body data type must match "Content-Type" header
 
-      });
-      if (!response.ok) throw new Error(response.statusText);//confirm that response is OK
-      //Response is ok. Proceed with setting state with itemUpdated
-      const itemView = await response.json();
-      //dispatch to state
-     dispatch({type: 'ViewItemSuccess', payload: {itemView: itemView}})
-    }catch(error) {
-      dispatch({type: 'ViewItemFailure', payload: {error: error}})
-    }
+  //     });
+  //     if (!response.ok) throw new Error(response.statusText);//confirm that response is OK
+  //     //Response is ok. Proceed with setting state with itemUpdated
+  //     const itemView = await response.json();
+  //     //dispatch to state
+  //    dispatch({type: 'ViewItemSuccess', payload: {itemView: itemView}})
+  //   }catch(error) {
+  //     dispatch({type: 'ViewItemFailure', payload: {error: error}})
+  //   }
 
-  }
+  // }
 
   const handleCancelUpdate = () => {
     //simply set state to make displayUpdate disappear
     dispatch({type: 'HandleCancelUpdate'});
   }
-  const handleCanceView = () => {
-    //simply set state to make displayUpdate disappear
-    dispatch({type: 'HandleCancelView'});
-  }
+  // const handleCanceView = () => {
+  //   //simply set state to make displayUpdate disappear
+  //   dispatch({type: 'HandleCancelView'});
+  // }
 
   //function to fetch data
   const fetchData = async () => {

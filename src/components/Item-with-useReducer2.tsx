@@ -21,7 +21,7 @@ const Item: React.FC<Props> = (props) => {
     };
 
     const featured = () => {
-        if (props.item.featured == true) {
+        if (props.item.featured === true) {
             alert(`
             Name of the artwork: ${props.item.artwork}
             Genre: ${props.item.genre}
@@ -52,8 +52,8 @@ const Item: React.FC<Props> = (props) => {
             <td>{props.item.location}</td>
 
 
-            <td>{props.item.featured == true ? 'Yes' : 'No'} </td>
-            <td><img src={props.item.imgUrl} height="50%" ></img></td>
+            <td>{props.item.featured === true ? 'Yes' : 'No'} </td>
+            <td><img src={props.item.imgUrl} height="50%" alt={props.item.artwork} /> </td>
 
             <td>
                 <ButtonGroup>

@@ -1,5 +1,5 @@
 import React, { useReducer, useEffect } from 'react';
-import { ActionType, CombinedStateType} from '../TypeDefinitions2'; 
+import { ActionType, CombinedStateType } from '../TypeDefinitions2';
 import { Container, Row } from 'react-bootstrap';
 import FeaturedItemwithReducer from './featuredItemwithReducer';
 
@@ -20,10 +20,10 @@ const HomePage: React.FC = () => {
       const data = await response.json();
       console.log(data);
       //set in state  
-      dispatch({type: 'FetchDataSuccess', payload: {items: data}})
+      dispatch({ type: 'FetchDataSuccess', payload: { items: data } })
     } catch (error) {
       //set state
-      dispatch({type: 'FetchDataFailure', payload: {error: error}})
+      dispatch({ type: 'FetchDataFailure', payload: { error: error } })
     }
   };
 
@@ -32,15 +32,18 @@ const HomePage: React.FC = () => {
     // eslint-disable-next-line
   }, []);
 
-  const initialState: CombinedStateType = {items: [], onAddItem: false, onEditItem: false, itemToEdit:null, alert: {show: false, message: '', type: '', bootstrapVariant: undefined}};
+  const initialState: CombinedStateType = { items: [], onAddItem: false, onEditItem: false, itemToEdit: null, alert: { show: false, message: '', type: '', bootstrapVariant: undefined } };
   //using useReducer instead of useState. Below, I am optionally explicitly indicating parameter types
   const [state, dispatch] = useReducer<Reducer<CombinedStateType, ActionType>>(reducer, initialState);
   return (
     <Container>
       <Row>
-        <FeaturedItemwithReducer items={state.items!}/>
+        <h3>Featured</h3>
       </Row>
-      
+      <Row>
+        <FeaturedItemwithReducer items={state.items!} />
+      </Row>
+      {/* <caption>{state.items?.length} Available in the inventory</caption> */}
     </Container>
   )
 }

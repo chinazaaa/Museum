@@ -7,8 +7,8 @@ type Props = {
     item: ItemType,
 }
 
-const Item: React.FC<Props> = (props) => {
-    //declare applicable contexts
+const ListFeatured: React.FC<Props> = (props) => {
+
     const handlersContext = useContext(HandlersContext);
 
     //callback function for delete button onClick event. We could have also embedded this function definition directly rather than define it first here
@@ -40,19 +40,9 @@ const Item: React.FC<Props> = (props) => {
         }
     }
 
-
     return (
         <tr>
-            {/* {alert(`Is featured = ${props.item.is_featured}`)} */}
             <td>{props.item.artwork}</td>
-            <td>{props.item.genre}</td>
-            <td>{props.item.artist}</td>
-            <td>{props.item.year}</td>
-            <td>{props.item.description}</td>
-            <td>{props.item.location}</td>
-
-
-            <td>{props.item.featured == true ? 'Yes' : 'No'} </td>
             <td><img src={props.item.imgUrl} height="50%" ></img></td>
 
             <td>
@@ -63,7 +53,8 @@ const Item: React.FC<Props> = (props) => {
                 </ButtonGroup>
             </td>
         </tr>
+
     );
 }
 
-export default Item;
+export default ListFeatured;

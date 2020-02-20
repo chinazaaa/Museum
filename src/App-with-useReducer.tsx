@@ -15,7 +15,7 @@ import { Jumbotron, Nav, Container, Navbar, Row, Form, FormControl, Button, Col,
 //let us lazily import inventory manager so that it does not slow down startup of page
 const InventoryManager = React.lazy(() => import('./components/InventoryManager-with-useReducer'));
 const MuseumManager = React.lazy(() => import('./components/MuseumManager'));
- const Museum= React.lazy(() => import('./components/museum'));
+ const Museum= React.lazy(() => import('./components/Museum'));
 const App: React.FC = () => {
   return (
     <Container fluid className='w-100 p-0'> {/**Topmost container set to fluid to get from end to end of page */}

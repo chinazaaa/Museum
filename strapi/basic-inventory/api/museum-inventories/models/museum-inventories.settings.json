@@ -2,18 +2,24 @@
   "connection": "default",
   "collectionName": "museum_inventories",
   "info": {
-    "name": "MuseumInventory"
+    "name": "museum-inventories"
   },
   "options": {
     "increments": true,
     "timestamps": true
   },
   "attributes": {
+    "artwork": {
+      "type": "string"
+    },
     "genre": {
       "type": "string"
     },
     "artist": {
       "type": "string"
+    },
+    "year": {
+      "type": "integer"
     },
     "description": {
       "type": "string"
@@ -21,20 +27,11 @@
     "location": {
       "type": "string"
     },
-    "category": {
-      "type": "string"
-    },
-    "year": {
-      "type": "integer"
-    },
-    "artwork": {
+    "imgUrl": {
       "type": "string"
     },
     "featured": {
-      "type": "integer"
-    },
-    "ImgUrl": {
-      "type": "string"
+      "type": "boolean"
     }
   }
 }

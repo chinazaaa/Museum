@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * Lifecycle callbacks for the `home-carousel-item` model.
+ * Lifecycle callbacks for the `museum-inventories` model.
  */
 
 module.exports = {

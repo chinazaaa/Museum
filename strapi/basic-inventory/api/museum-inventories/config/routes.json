@@ -2,48 +2,48 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/museum-items",
-      "handler": "museum-items.find",
+      "path": "/museum-inventories",
+      "handler": "museum-inventories.find",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/museum-items/count",
-      "handler": "museum-items.count",
+      "path": "/museum-inventories/count",
+      "handler": "museum-inventories.count",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/museum-items/:id",
-      "handler": "museum-items.findOne",
+      "path": "/museum-inventories/:id",
+      "handler": "museum-inventories.findOne",
       "config": {
         "policies": []
       }
     },
     {
       "method": "POST",
-      "path": "/museum-items",
-      "handler": "museum-items.create",
+      "path": "/museum-inventories",
+      "handler": "museum-inventories.create",
       "config": {
         "policies": []
       }
     },
     {
       "method": "PUT",
-      "path": "/museum-items/:id",
-      "handler": "museum-items.update",
+      "path": "/museum-inventories/:id",
+      "handler": "museum-inventories.update",
       "config": {
         "policies": []
       }
     },
     {
       "method": "DELETE",
-      "path": "/museum-items/:id",
-      "handler": "museum-items.delete",
+      "path": "/museum-inventories/:id",
+      "handler": "museum-inventories.delete",
       "config": {
         "policies": []
       }

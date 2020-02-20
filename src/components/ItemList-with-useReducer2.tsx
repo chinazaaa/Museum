@@ -14,14 +14,8 @@ const ItemList: React.FC<Props> = (props) => {
   //prepare items for display in a table
   let itemListRows = null;
   itemListRows = props.items.map((item) => {
-    console.log(item.featured)
     return <Item item={item} />
   })
-// //prepare items for display in a table
-// let itemListRows = null;
-// itemListRows = props.items.map((item) => {
-//  return item.is_featured == 1 ? <Item item={item} /> : null
-//     })
 
   return (
       <Table striped bordered hover>

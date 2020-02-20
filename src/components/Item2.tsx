@@ -30,7 +30,7 @@ const Item: React.FC<Props> = (props) => {
          <td>{props.item.description}</td>
           <td>{props.item.location}</td>
           {/* <td>{props.item.image}</td> */}
-          <td>{props.item.featured==1?'Yes': 'No'}</td>
+          <td>{props.item.featured}</td>
           
 
         <td><button onClick={()=> alert('Yet to be implemented. Try it yourself!')}>View Detail</button></td>

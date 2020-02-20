@@ -1,26 +1,25 @@
 import React from 'react';
 import { ItemType } from '../TypeDefinitions2';
-import ItemListHeader from './ItemListHeader2';
-import Item from './Item-with-useReducer2';
 import { Table } from 'react-bootstrap';
+import ListFeatured from './listFeatured';
+import FeaturedHeader from './featuredHeader'
 
 //declare type for Props passed to this 
 type Props = {
     items: Array<ItemType>,
 }
 
-const ItemList: React.FC<Props> = (props) => {
+const FeaturedItemwithReducer: React.FC<Props> = (props) => {
   
   //prepare items for display in a table
   let itemListRows = null;
   itemListRows = props.items.map((item) => {
-    return item.featured ? <Item item={item} /> : null
+    return <ListFeatured item={item} />
   })
 
   return (
       <Table striped bordered hover>
-        <caption>Table 1: Available Featured Musuem Items</caption>
-        <ItemListHeader />
+          <FeaturedHeader />
         <tbody>
           {itemListRows}
         </tbody>
@@ -28,4 +27,4 @@ const ItemList: React.FC<Props> = (props) => {
   );
 }
 
-export default ItemList;
+export default FeaturedItemwithReducer;

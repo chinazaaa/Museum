@@ -13,7 +13,7 @@ export interface ItemType {
     year: number,
     description: string,
     location: string,
-    featured?: number,
+    featured: boolean,
     imgUrl: string
     // image: any
    

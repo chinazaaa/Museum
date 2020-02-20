@@ -20,7 +20,7 @@ const AddItem: React.FC<Props> = (props) => {
         description: '',
         location: '',
 
-        featured: 0,
+        featured: false,
         imgUrl: ''
         // image: '*.png || *jpg || *jpeg'
     }
@@ -99,9 +99,8 @@ const AddItem: React.FC<Props> = (props) => {
                 <Form.Group>
                     <Form.Label htmlFor='featured'>Is it Featured?</Form.Label>
                     <Form.Control as='select' id="featured" name="featured" value={item.featured} onChange={onChange} required>
-                        <option value='1'>Yes</option>
-                        <option value='0'>No</option>
-
+                        <option value='true'>Yes</option>
+                        <option value='false'>No</option>
                     </Form.Control>
 
                 </Form.Group>
